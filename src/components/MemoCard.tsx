@@ -1,10 +1,10 @@
-import type { Memo } from '../types/memo'
-import { cardColor } from '../constants/categoryStyle'
+import type { Memo } from "../types/memo";
+import { cardColor } from "../constants/categoryStyle";
 
 interface MemoCardProps {
-  memo: Memo
-  onTogglePin: (id: number) => void
-  onOpen: (id: number) => void
+  memo: Memo;
+  onTogglePin: (id: number) => void;
+  onOpen: (id: number) => void;
 }
 
 function MemoCard({ memo, onTogglePin, onOpen }: MemoCardProps) {
@@ -17,16 +17,16 @@ function MemoCard({ memo, onTogglePin, onOpen }: MemoCardProps) {
         <h3 className="truncate text-heading-small">{memo.title}</h3>
         <button
           type="button"
-          aria-label={memo.isPinned ? '고정 해제' : '고정'}
+          aria-label={memo.isPinned ? "고정 해제" : "고정"}
           onClick={(event) => {
             // 카드(article)의 onClick까지 올라가 상세 뷰가 열리지 않도록 막는다
-            event.stopPropagation()
-            onTogglePin(memo.id)
+            event.stopPropagation();
+            onTogglePin(memo.id);
           }}
           className="flex shrink-0 cursor-pointer"
         >
           <img
-            src={memo.isPinned ? '/icons/star-pinned.svg' : '/icons/star.svg'}
+            src={memo.isPinned ? "/icons/star-pinned.svg" : "/icons/star.svg"}
             alt=""
             width={23}
             height={22}
@@ -43,7 +43,7 @@ function MemoCard({ memo, onTogglePin, onOpen }: MemoCardProps) {
         <time>{memo.date}</time>
       </footer>
     </article>
-  )
+  );
 }
 
-export default MemoCard
+export default MemoCard;
