@@ -11,6 +11,7 @@ function App() {
   const [memoList, setMemoList] = useState(initialMemoList);
   const [keyword, setKeyword] = useState("");
   const [category, setCategory] = useState<CategoryFilter>("all");
+  const [selectedMemoId, setSelectedMemoId] = useState<number | null>(null);
 
   // 입력이 0.3초 동안 멈췄을 때만 검색에 반영한다 (서버 연동 시 요청 폭주 방지)
   const debouncedKeyword = useDebounce(keyword, 300);
@@ -31,7 +32,11 @@ function App() {
   };
 
   const openMemo = (id: number) => {
-    console.log("상세 뷰 열기", id); // 마지막 단계에서 MemoDetail로 교체
+    setSelectedMemoId(id);
+  };
+
+  const closeMemo = () => {
+    setSelectedMemoId(null);
   };
 
   return (
