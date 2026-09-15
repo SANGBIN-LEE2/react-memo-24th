@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { cardColor, chipDotColor } from "../constants/categoryStyle";
 import type { Memo } from "../types/memo";
 
-interface MemoDetailProps {
+interface MemoViewProps {
   memo: Memo;
   onClose: () => void;
 }
 
-function MemoDetail({ memo, onClose }: MemoDetailProps) {
+function MemoView({ memo, onClose }: MemoViewProps) {
   // 상세 뷰가 떠 있는 동안에만 ESC 키로 닫을 수 있게 한다
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -71,4 +71,4 @@ function MemoDetail({ memo, onClose }: MemoDetailProps) {
   );
 }
 
-export default MemoDetail;
+export default MemoView;
