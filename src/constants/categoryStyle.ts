@@ -6,3 +6,10 @@ export const cardColor: Record<Category, string> = {
   Work: "bg-blue06",
   Others: "bg-gray02",
 };
+
+// 태그를 고르면 select 왼쪽에 보이는 카테고리 도트 아이콘
+export const tagDotIcon: Record<Category, string> = {
+  Daily: "bg-[url(/icons/dot-daily.svg)]",
+  Work: "bg-[url(/icons/dot-work.svg)]",
+  Others: "bg-[url(/icons/dot-others.svg)]",
+};
