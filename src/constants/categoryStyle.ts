@@ -13,3 +13,10 @@ export const tagDotIcon: Record<Category, string> = {
   Work: "bg-[url(/icons/dot-work.svg)]",
   Others: "bg-[url(/icons/dot-others.svg)]",
 };
+
+// 상세 뷰 태그 칩 앞에 붙는 도트 색
+export const tagDotColor: Record<Category, string> = {
+  Daily: "bg-blue04",
+  Work: "bg-blue06",
+  Others: "bg-gray03",
+};
