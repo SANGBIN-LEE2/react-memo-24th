@@ -1,16 +1,21 @@
-import type { Memo } from '../types/memo'
-import MemoCard from './MemoCard'
+import type { Memo } from "../types/memo";
+import MemoCard from "./MemoCard";
 
 interface MemoSectionProps {
-  title: string
-  memoList: Memo[]
-  onTogglePin: (id: number) => void
-  onOpen: (id: number) => void
+  title: string;
+  memoList: Memo[];
+  onTogglePin: (id: number) => void;
+  onOpen: (id: number) => void;
 }
 
-function MemoSection({ title, memoList, onTogglePin, onOpen }: MemoSectionProps) {
+function MemoSection({
+  title,
+  memoList,
+  onTogglePin,
+  onOpen,
+}: MemoSectionProps) {
   // 보여줄 메모가 없으면 구역 자체를 그리지 않는다 (1주차의 section.hidden)
-  if (memoList.length === 0) return null
+  if (memoList.length === 0) return null;
 
   return (
     <section>
@@ -26,7 +31,7 @@ function MemoSection({ title, memoList, onTogglePin, onOpen }: MemoSectionProps)
         ))}
       </ul>
     </section>
-  )
+  );
 }
 
-export default MemoSection
+export default MemoSection;
