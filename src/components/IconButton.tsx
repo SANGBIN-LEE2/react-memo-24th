@@ -4,7 +4,7 @@ interface IconButtonProps {
   label: string;
 }
 
-function IconButtton({ iconSrc, iconSize, label }: IconButtonProps) {
+function IconButton({ iconSrc, iconSize, label }: IconButtonProps) {
   return (
     <button
       type="button"
@@ -15,3 +15,5 @@ function IconButtton({ iconSrc, iconSize, label }: IconButtonProps) {
     </button>
   );
 }
+
+export default IconButton;
