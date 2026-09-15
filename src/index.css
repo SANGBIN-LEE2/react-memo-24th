@@ -1,1 +1,73 @@
 @import "tailwindcss";
+
+/* 피그마 디자인 시스템 → Tailwind 테마 */
+@theme {
+  /* 컬러 */
+  --color-blue01: #e4edff;
+  --color-blue02: #aac8ff;
+  --color-blue03: #7ba7ff;
+  --color-blue04: #5590ff;
+  --color-blue05: #0055f5;
+  --color-blue06: #0037a3;
+  --color-blue07: #001b51;
+
+  --color-white00: #fafafa;
+  --color-gray01: #e0e2e5;
+  --color-gray02: #a6b7cb;
+  --color-gray03: #677b93;
+  --color-gray04: #485668;
+  --color-gray05: #29313c;
+  --color-black00: #121416;
+
+  --color-alert01: #ff5656;
+
+  /* 폰트 */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+
+  /* 타이포그래피: 크기 / 줄 높이 / 굵기 */
+  --text-display-large: 48px;
+  --text-display-large--line-height: 56px;
+  --text-display-large--font-weight: 700;
+
+  --text-heading-large: 32px;
+  --text-heading-large--line-height: 40px;
+  --text-heading-large--font-weight: 700;
+
+  --text-heading-medium: 24px;
+  --text-heading-medium--line-height: 32px;
+  --text-heading-medium--font-weight: 600;
+
+  --text-heading-small: 20px;
+  --text-heading-small--line-height: 28px;
+  --text-heading-small--font-weight: 700;
+
+  --text-body-large: 18px;
+  --text-body-large--line-height: 28px;
+  --text-body-large--font-weight: 500;
+
+  --text-body-medium: 16px;
+  --text-body-medium--line-height: 24px;
+  --text-body-medium--font-weight: 500;
+
+  --text-body-small: 14px;
+  --text-body-small--line-height: 20px;
+  --text-body-small--font-weight: 400;
+
+  --text-field-medium: 16px;
+  --text-field-medium--line-height: 24px;
+  --text-field-medium--font-weight: 400;
+
+  --text-action-medium: 16px;
+  --text-action-medium--line-height: 24px;
+  --text-action-medium--font-weight: 600;
+
+  --text-action-small: 14px;
+  --text-action-small--line-height: 20px;
+  --text-action-small--font-weight: 600;
+}
+
+/* 페이지 기본 배경·글자색 (1주차 body와 같음) */
+body {
+  background-color: var(--color-blue01);
+  color: var(--color-blue07);
+}
