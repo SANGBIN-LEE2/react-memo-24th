@@ -7,12 +7,17 @@ import useDebounce from "./hooks/useDebounce";
 import type { CategoryFilter } from "./types/memo";
 import filterMemoList from "./utils/filterMemoList";
 import MemoView from "./components/MemoView";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import { useAuthStore } from "./store/authStore";
 
 function App() {
   const [memoList, setMemoList] = useState(initialMemoList);
   const [keyword, setKeyword] = useState("");
   const [category, setCategory] = useState<CategoryFilter>("all");
   const [selectedMemoId, setSelectedMemoId] = useState<number | null>(null);
+  const accessToken = useAuthStore((state) => state.accessToken);
+  const [authPage, setAuthPage] = useState<"login" | "signup">("login");
 
   // 입력이 0.3초 동안 멈췄을 때만 검색에 반영한다 (서버 연동 시 요청 폭주 방지)
   const debouncedKeyword = useDebounce(keyword, 300);
@@ -42,7 +47,16 @@ function App() {
     setSelectedMemoId(null);
   };
 
-    return (
+  // 로그인 전에는 메모 화면 대신 인증 화면을 보여준다
+  if (!accessToken) {
+    return authPage === "login" ? (
+      <LoginPage onSwitch={() => setAuthPage("signup")} />
+    ) : (
+      <SignupPage onSwitch={() => setAuthPage("login")} />
+    );
+  }
+
+  return (
     <>
       <div className="mx-auto flex min-h-screen max-w-[1440px] flex-col gap-[52px] px-[120px] pt-[72px] pb-[86px]">
         <TopBar
