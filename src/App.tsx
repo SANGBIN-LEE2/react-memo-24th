@@ -17,6 +17,7 @@ function App() {
   const [category, setCategory] = useState<CategoryFilter>("all");
   const [selectedMemoId, setSelectedMemoId] = useState<number | null>(null);
   const accessToken = useAuthStore((state) => state.accessToken);
+  const logout = useAuthStore((state) => state.logout);
   const [authPage, setAuthPage] = useState<"login" | "signup">("login");
 
   // 입력이 0.3초 동안 멈췄을 때만 검색에 반영한다 (서버 연동 시 요청 폭주 방지)
@@ -64,6 +65,7 @@ function App() {
           onKeywordChange={setKeyword}
           category={category}
           onCategoryChange={setCategory}
+          onLogout={logout}
         />
 
         <main className="flex flex-1 flex-col gap-5">

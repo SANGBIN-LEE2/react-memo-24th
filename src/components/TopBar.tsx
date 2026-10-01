@@ -7,6 +7,7 @@ interface TopBarProps {
   onKeywordChange: (keyword: string) => void;
   category: CategoryFilter;
   onCategoryChange: (category: CategoryFilter) => void;
+  onLogout: () => void;
 }
 
 function TopBar({
@@ -14,6 +15,7 @@ function TopBar({
   onKeywordChange,
   category,
   onCategoryChange,
+  onLogout,
 }: TopBarProps) {
   return (
     <header className="flex items-center gap-4">
@@ -37,7 +39,12 @@ function TopBar({
       </div>
 
       <IconButton iconSrc="/icons/plus.svg" iconSize={28} label="메모 추가" />
-      <IconButton iconSrc="/icons/profile.svg" iconSize={32} label="프로필" />
+      <IconButton
+        iconSrc="/icons/profile.svg"
+        iconSize={32}
+        label="로그아웃"
+        onClick={onLogout}
+      />
     </header>
   );
 }

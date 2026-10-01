@@ -14,7 +14,19 @@ function MemoCard({ memo, onTogglePin, onOpen }: MemoCardProps) {
       className={`flex h-[285px] w-full cursor-pointer flex-col gap-2.5 rounded-[20px] px-5 py-3 text-white00 ${cardColor[memo.category]}`}
     >
       <header className="flex items-center justify-between gap-2">
-        <h3 className="truncate text-heading-small">{memo.title}</h3>
+        <h3 className="min-w-0 flex-1 text-heading-small">
+          <button
+            type="button"
+            onClick={(event) => {
+              // 카드의 onClick과 겹치지 않도록 여기서 멈춘다
+              event.stopPropagation();
+              onOpen(memo.id);
+            }}
+            className="w-full cursor-pointer truncate text-left"
+          >
+            {memo.title}
+          </button>
+        </h3>
         <button
           type="button"
           aria-label={memo.isPinned ? "고정 해제" : "고정"}

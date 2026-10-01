@@ -45,7 +45,11 @@ function AuthForm({ mode, onSwitch }: AuthFormProps) {
           <input
             type="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => {
+              setEmail(event.target.value);
+              // 사용자가 고치기 시작하면 이전 실패 메시지는 지운다
+              if (error) clearError();
+            }}
             required
             placeholder="아이디를 입력하세요"
             className="h-14 w-full rounded-xl bg-white00 px-5 py-4 text-field-medium text-blue07 outline-none placeholder:text-gray02"
@@ -53,7 +57,10 @@ function AuthForm({ mode, onSwitch }: AuthFormProps) {
           <input
             type="password"
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={(event) => {
+              setPassword(event.target.value);
+              if (error) clearError();
+            }}
             required
             minLength={8}
             placeholder="비밀번호를 입력하세요"
